@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Homepage</title>
+</head>
+<body>
+    
+    <%-include('./partials/nav.ejs')%>
+    <!-- <%=JSON.stringify(user)%> -->
+    <div class="container mt-4 d-flex flex-row" style=" flex-wrap:wrap; gap:10px; ">
+        <% blogs.forEach(blog => { %>
+            <div class="ca rd" style="width:300px; height:auto; box-shadow:0px 0px 10px gray; border-radius: 10px; margin:1px;">
+                <img src="<%= blog.coverImageURL%>" width="50%" height="50%" style="border-radius:1px" class="card-img-top" alt="...">
+                <div class="card-body" style="height:50%;">
+                  <h5 class="card-title"><%= blog.title%></h5>
+                 
+                  <a href="/blog/<%=blog._id%>" class="btn btn-primary">View</a>
+                </div>
+              </div>
+         
+        <% }) %>
+    </div>
+
+
+   <%- include('./partials/script.ejs') %>
+</body>
+</html>
