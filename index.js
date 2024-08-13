@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path  = require('path'); 
-const PORT= process.env.PORT || 8000;
+
 const userRoute  =require('./routes/user');
 const blogRoute = require('./routes/blog');
 const cookieParser = require('cookie-parser');
@@ -10,7 +10,7 @@ const { checkForAuthenticationCookie } = require('./middlewares/authentication')
 const Blog= require('./models/blog');
 require('dotenv').config();
 
-
+const port= process.env.PORT || 8000;
 // connect mongodb with server
 connectWithDB();
 
@@ -41,6 +41,6 @@ app.use('/user',userRoute);
 
 app.use('/blog',blogRoute);
 
-app.listen(PORT,() =>{
-    console.log(`server started at port no.${PORT}`);
+app.listen(port,() =>{
+    console.log(`server started at port no.${port}`);
 });
